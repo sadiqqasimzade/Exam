@@ -1,0 +1,44 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box; }
+
+.bgimg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+.navbar {
+  background-color: #0a60a4;
+  opacity: 0.9; }
+
+#section1 {
+  background-image: url("../img/hero-bg.jpg"); }
+
+.servicetextcolor {
+  color: #f7bd47; }
+
+.bgblue {
+  background-color: #05579e; }
+
+.bluecolor {
+  color: #074b86; }
+
+.footerbg {
+  background-color: #065fad; }
+
+.footericons {
+  transition: 0.5s;
+  color: white;
+  background-color: #0880e8; }
+
+.mainicons {
+  transition: 0.5s;
+  background-color: #c3dcf1; }
+
+.footericons:hover {
+  background-color: yellowgreen; }
+
+.mainicons:hover {
+  background-color: #0880e8;
+  color: white; }
