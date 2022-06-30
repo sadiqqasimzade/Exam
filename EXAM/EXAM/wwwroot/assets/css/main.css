@@ -8,9 +8,8 @@
   background-position: center;
   background-repeat: no-repeat; }
 
-.navbar {
-  background-color: #0a60a4;
-  opacity: 0.9; }
+.footerbg {
+  background-color: #065fad; }
 
 #section1 {
   background-image: url("../img/hero-bg.jpg"); }
@@ -24,8 +23,16 @@
 .bluecolor {
   color: #074b86; }
 
-.footerbg {
-  background-color: #065fad; }
+.footericons:hover {
+  background-color: yellowgreen; }
+
+.mainicons:hover {
+  background-color: #0880e8;
+  color: white; }
+
+.navbar {
+  background-color: #0a60a4;
+  opacity: 0.9; }
 
 .footericons {
   transition: 0.5s;
@@ -36,9 +43,9 @@
   transition: 0.5s;
   background-color: #c3dcf1; }
 
-.footericons:hover {
-  background-color: yellowgreen; }
+.teamimg {
+  transition: 0.3s;
+  position: relative; }
 
-.mainicons:hover {
-  background-color: #0880e8;
-  color: white; }
+.teamimg:hover {
+  transform: scale(1.1); }

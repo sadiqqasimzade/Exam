@@ -10,10 +10,11 @@ using EXAM.Models;
 using X.PagedList;
 using EXAM.Utilities;
 using EXAM.Utilities.Extentions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EXAM.Areas.Manage.Controllers
 {
-    [Area("Manage")]
+    [Area("Manage")][Authorize]
     public class TeamsController : Controller
     {
         private readonly AppDbContext _context;
@@ -26,7 +27,7 @@ namespace EXAM.Areas.Manage.Controllers
         // GET: Manage/Teams
         public IActionResult Index(int page=1)
         {
-            return View( _context.Teams.ToPagedList(page,10));
+            return View( _context.Teams.ToPagedList(page,2));
         }
 
         // GET: Manage/Teams/Create

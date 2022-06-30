@@ -1,5 +1,6 @@
 using EXAM.DAL;
 using EXAM.Models;
+using EXAM.Services;
 using EXAM.Utilities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -43,7 +44,7 @@ namespace EXAM
                 opt.User.RequireUniqueEmail = true;
             });
             services.ConfigureApplicationCookie(c => c.LoginPath = "/Auth/Login");
-
+            services.AddScoped<LayoutService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

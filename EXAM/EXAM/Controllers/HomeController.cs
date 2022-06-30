@@ -1,5 +1,7 @@
-﻿using EXAM.Models;
+﻿using EXAM.DAL;
+using EXAM.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,11 +13,15 @@ namespace EXAM.Controllers
 {
     public class HomeController : Controller
     {
-      
+        private readonly AppDbContext _context;
 
-        public IActionResult Index()
+        public HomeController(AppDbContext context)
         {
-            return View();
+            _context = context;
+        }
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.Teams.Include(t=>t.Socials).ToListAsync());
         }
 
 

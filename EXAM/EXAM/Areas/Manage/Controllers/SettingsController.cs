@@ -8,10 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using EXAM.DAL;
 using EXAM.Models;
 using X.PagedList;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EXAM.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize]
     public class SettingsController : Controller
     {
         private readonly AppDbContext _context;
@@ -22,9 +24,9 @@ namespace EXAM.Areas.Manage.Controllers
         }
 
         // GET: Manage/Settings
-        public  IActionResult Index(int page)
+        public  IActionResult Index(int page=1)
         {
-            return View( _context.Settings.ToPagedList(page,10));
+            return View( _context.Settings.ToPagedList(page,5));
         }
 
    

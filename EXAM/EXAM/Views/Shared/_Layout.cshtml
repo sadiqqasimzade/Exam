@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using EXAM.Services;
+@inject LayoutService ls;
+@{ 
+    Dictionary<string, string> data = ls.GetLayout();
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -26,10 +31,9 @@
 </head>
 <body>
     <header>
-        >
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
-                <a class="navbar-brand fs-3 text-white" href="#">ANYAR</a>
+                <a class="navbar-brand fs-3 text-white" asp-action="Index" asp-controller="Home">@data["NavbarText"]</a>
                 <button class="navbar-toggler"
                         type="button"
                         data-bs-toggle="collapse"
@@ -43,7 +47,7 @@
                      id="navbarSupportedContent">
                     <ul class="navbar-nav mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link text-white-50" href="#">Home</a>
+                            <a class="nav-link text-white-50" asp-action="Index" asp-controller="Home">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white-50" href="#">About </a>
@@ -83,6 +87,24 @@
                         <li class="nav-item">
                             <a class="nav-link text-white-50" href="#">Contact </a>
                         </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white-50">@User.Identity.Name </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white-50" asp-action="Signout" asp-controller="Auth">Sign out </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white-50" asp-action="Login" asp-controller="Auth">Register </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white-50" asp-action="Login" asp-controller="Auth">Login </a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -171,18 +193,18 @@
                             New York, NY 535022
                             United States
                         </p>
-                        <p class="text-white"><strong>Phone</strong> : +1 5589 55488 55</p>
-                        <p class="text-white"><strong>Email</strong>  : info@example.com</p>
+                        <p class="text-white"><strong>Phone</strong> :@data["Phone"]</p>
+                        <p class="text-white"><strong>Email</strong>  :@data["Email"]</p>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <p class="text-white fw-bold fs-5">About Anyar</p>
                         <p class="text-white">Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
                         <div class="d-flex gap-2">
-                            <a href="#"><i class="bi bi-twitter footericons rounded-circle p-2"></i></a>
-                            <a href="#"><i class="bi bi-facebook footericons rounded-circle p-2"></i></a>
-                            <a href="#"><i class="bi bi-instagram footericons rounded-circle p-2"></i></a>
-                            <a href="#"><i class="bi bi-skype footericons rounded-circle p-2"></i></a>
-                            <a href="#"><i class="bi bi-linkedin footericons rounded-circle p-2"></i></a>
+                            <a href="@data["PageTwitterLink"]"><i class="bi bi-twitter footericons rounded-circle p-2"></i></a>
+                            <a href="@data["PageFacebookLink"]"><i class="bi bi-facebook footericons rounded-circle p-2"></i></a>
+                            <a href="@data["PageInstagramLink"]"><i class="bi bi-instagram footericons rounded-circle p-2"></i></a>
+                            <a href="@data["PageSkypeLink"]"><i class="bi bi-skype footericons rounded-circle p-2"></i></a>
+                            <a href="@data["PageLinkidLInk"]"><i class="bi bi-linkedin footericons rounded-circle p-2"></i></a>
                         </div>
                     </div>
                 </div>
@@ -194,5 +216,6 @@
             crossorigin="anonymous"></script>
     <script src="~/assets/js/owl.carousel.min.js"></script>
     <script src="~/assets/js/main.js"></script>
+    @RenderSection("scripts", false)
 </body>
 </html>

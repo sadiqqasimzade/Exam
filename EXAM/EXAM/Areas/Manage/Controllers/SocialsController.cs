@@ -8,10 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using EXAM.DAL;
 using EXAM.Models;
 using X.PagedList;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EXAM.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize]
     public class SocialsController : Controller
     {
         private readonly AppDbContext _context;
@@ -74,8 +76,8 @@ namespace EXAM.Areas.Manage.Controllers
             dbsocial.Link = socials.Link;
             dbsocial.TeamId = socials.TeamId;
             dbsocial.IconClass = socials.IconClass;
-
-            return View();
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
 
