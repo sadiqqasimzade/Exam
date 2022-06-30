@@ -38,7 +38,7 @@ namespace EXAM.Areas.Manage.Controllers
         // POST: Manage/Settings/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Key,Value")] Settings settings)
+        public async Task<IActionResult> Create([Bind("Id,Key,Value")] Setting settings)
         {
             if (ModelState.IsValid)
             {
@@ -62,11 +62,15 @@ namespace EXAM.Areas.Manage.Controllers
         // POST: Manage/Settings/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Settings settings)
+        public async Task<IActionResult> Edit(Setting setting)
         {
-            if (settings == null) return NotFound();
-            
-            return View(settings);
+            if (setting == null) return NotFound();
+            Setting dbsetting =await _context.Settings.FindAsync(setting.Id);
+            if (dbsetting == null) return NotFound();
+            dbsetting.Key = setting.Key;
+            dbsetting.Value = setting.Value;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
 
@@ -75,9 +79,9 @@ namespace EXAM.Areas.Manage.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
-            var settings = await _context.Settings.FindAsync(id);
-            if (settings == null) return NotFound();
-            _context.Settings.Remove(settings);
+            var setting = await _context.Settings.FindAsync(id);
+            if (setting == null) return NotFound();
+            _context.Settings.Remove(setting);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

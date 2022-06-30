@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EXAM.Models
 {
-    public class Settings
+    public class Setting
     {
         public int Id { get; set; }
         [Required]

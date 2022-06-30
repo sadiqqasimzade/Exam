@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrator\\source\\repos\\EXAM\\EXAM\\EXAM.csproj": {}
+    "C:\\Users\\Administrator\\Desktop\\New folder\\EXAM\\EXAM\\EXAM.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrator\\source\\repos\\EXAM\\EXAM\\EXAM.csproj": {
+    "C:\\Users\\Administrator\\Desktop\\New folder\\EXAM\\EXAM\\EXAM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\EXAM\\EXAM\\EXAM.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\New folder\\EXAM\\EXAM\\EXAM.csproj",
         "projectName": "EXAM",
-        "projectPath": "C:\\Users\\Administrator\\source\\repos\\EXAM\\EXAM\\EXAM.csproj",
+        "projectPath": "C:\\Users\\Administrator\\Desktop\\New folder\\EXAM\\EXAM\\EXAM.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\source\\repos\\EXAM\\EXAM\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\Desktop\\New folder\\EXAM\\EXAM\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

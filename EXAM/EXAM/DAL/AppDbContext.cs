@@ -14,7 +14,7 @@ namespace EXAM.DAL
         {
         }
 
-        public DbSet<Settings> Settings { get; set; }
+        public DbSet<Setting> Settings { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Socials> Socials { get; set; }
     }

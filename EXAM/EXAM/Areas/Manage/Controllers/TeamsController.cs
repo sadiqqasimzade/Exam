@@ -92,7 +92,6 @@ namespace EXAM.Areas.Manage.Controllers
                     dbteam.Img.DeleteFile(Consts.TeamImgRootPath);
                     dbteam.Img = await team.File.SaveFile(Consts.TeamImgRootPath, Consts.TeamImgMaxNameLen);
                 }
-               
             }
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
